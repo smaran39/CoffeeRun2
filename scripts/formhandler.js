@@ -29,7 +29,24 @@
             this.elements[0].focus();
         });
     };
+//from here- Silver Challenge required code
+    FormHandler.prototype.addChangeHandler = function(fn) {
+            this.$formElement.on('change', function(event) {
+                event.preventDefault();
+                fn();
+            });
 
+        };
+
+
+        FormHandler.prototype.addResetHandler = function(fn) {
+            //console.log('Setting reset handler for form');
+            this.$formElement.on('reset', function() {
+                fn();
+            });
+        };
+
+      //till here extra-code for Silver challenge
     App.FormHandler = FormHandler;
     window.App = App;
 })(window);
